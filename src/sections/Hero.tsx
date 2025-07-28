@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import logo from '@/assets/logo.png'; // use @ alias
+import logo from '@/assets/logo.png';
 
 export default function Hero() {
   return (
     <section className='min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 bg-[#0f0f0f] text-white'>
-      {/* Left: Logo (placeholder or actual) */}
+      {/* Left: Logo */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
@@ -22,7 +22,7 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Right: Headline + CTA */}
+      {/* Right: Headline */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
@@ -30,14 +30,15 @@ export default function Hero() {
         className='w-full md:w-1/2 text-center md:text-left space-y-6 py-12'
       >
         <h1 className='text-4xl md:text-5xl font-bold tracking-tight uppercase leading-snug'>
-          Reliable HVAC <br /> Solutions
+          Honest Work. <br />
+          Fair Prices.
         </h1>
         <p className='text-gray-300 text-lg md:text-xl'>
-          Expert HVAC services to ensure your comfort all year round.
+          Bringing Comfort To Every Home Without Breaking The Bank.
         </p>
         <div className='space-y-4'>
           <button className='bg-gray-300 text-black px-6 py-3 font-semibold rounded shadow hover:bg-gray-400 transition cursor-pointer'>
-            Book an Appointment
+            Book An Appointment
           </button>
           <p className='text-xl font-bold'>(404) 542-4332</p>
         </div>
