@@ -2,46 +2,56 @@
 
 import { motion } from 'framer-motion';
 import logo from '@/assets/logo.png';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className='min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 bg-[#0f0f0f] text-white'>
-      {/* Left: Logo */}
+    <section className='min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-10 md:py-20 bg-gradient-to-r from-orange-300 via-red-400 to-blue-900 text-white'>
+      {/* LOGO SECTION */}
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className='w-full md:w-1/2 flex justify-center md:justify-start py-12'
+        className='mb-8 md:mb-0 md:mr-12 drop-shadow-lg'
       >
-        <img
-          src={logo.src}
-          alt='The Comfort Guardians logo'
-          width={150}
-          height={80}
-          className='max-w-xs md:max-w-md'
-        />
+        <Link href='/'>
+          <Image
+            src={logo} // adjust path if needed
+            alt='The Comfort Guardians Logo'
+            width={180}
+            height={180}
+            className='rounded-md'
+          />
+        </Link>
       </motion.div>
 
-      {/* Right: Headline */}
+      {/* TEXT SECTION */}
       <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className='w-full md:w-1/2 text-center md:text-left space-y-6 py-12'
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className='text-center md:text-left'
       >
-        <h1 className='text-4xl md:text-5xl font-bold tracking-tight uppercase leading-snug'>
-          Honest Work. <br />
-          Fair Prices.
+        <h1 className='text-3xl md:text-5xl font-bold'>
+          THE COMFORT GUARDIANS
         </h1>
-        <p className='text-gray-300 text-lg md:text-xl'>
-          Bringing Comfort To Every Home Without Breaking The Bank.
+
+        <p className='mt-4 text-lg'>
+          Expert HVAC services to ensure your comfort all year round.
         </p>
-        <div className='space-y-4'>
-          <button className='bg-gray-300 text-black px-6 py-3 font-semibold rounded shadow hover:bg-gray-400 transition cursor-pointer'>
-            Book An Appointment
+
+        <div className='mt-6'>
+          <button className='bg-white text-black font-semibold px-6 py-2 rounded hover:bg-gray-200 hover:scale-105 transition-transform duration-300'>
+            Book an Appointment
           </button>
-          <p className='text-xl font-bold'>(404) 542-4332</p>
         </div>
+
+        <p className='mt-4 text-lg md:text-xl font-medium tracking-wide'>
+          (404) 542-4332
+        </p>
+
+        <p className='text-sm text-gray-200 mt-1'>Available 7 Days a Week</p>
       </motion.div>
     </section>
   );
