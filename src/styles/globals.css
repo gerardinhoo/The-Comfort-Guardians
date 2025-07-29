@@ -31,3 +31,7 @@ body {
 body > div:first-of-type[style*='position: fixed'] {
   display: none !important;
 }
+
+html {
+  scroll-behavior: smooth;
+}

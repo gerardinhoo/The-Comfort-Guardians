@@ -1,57 +1,58 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import logo from '@/assets/logo.png';
-import Image from 'next/image';
 import Link from 'next/link';
 
+type ButtonProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const Button = ({ children, className = '' }: ButtonProps) => (
+  <button
+    className={`bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-100 transition ${className}`}
+  >
+    {children}
+  </button>
+);
 export default function Hero() {
   return (
-    <section className='min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-10 md:py-20 bg-gradient-to-r from-orange-300 via-red-400 to-blue-900 text-white'>
-      {/* LOGO SECTION */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className='mb-8 md:mb-0 md:mr-12 drop-shadow-lg'
-      >
-        <Link href='/'>
-          <Image
-            src={logo} // adjust path if needed
-            alt='The Comfort Guardians Logo'
-            width={180}
-            height={180}
-            className='rounded-md'
-          />
-        </Link>
-      </motion.div>
+    <section
+      id='home'
+      className='relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-gradient-to-r from-[#f3904f] via-[#f38e6d] to-[#a06df2]'
+    >
+      {/* Optional Glow Effects */}
+      <div className='absolute inset-0 -z-10'>
+        <div className='absolute top-10 left-10 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse' />
+        <div className='absolute bottom-10 right-10 w-96 h-96 bg-white/10 rounded-full blur-2xl animate-pulse' />
+      </div>
 
-      {/* TEXT SECTION */}
+      {/* Optional Top Overlay for visual depth */}
+      <div className='absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/30 to-transparent z-10' />
+
+      {/* Glassmorphism Text Card */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className='text-center md:text-left'
+        transition={{ duration: 1 }}
+        className='relative z-20 text-center bg-white/10 backdrop-blur-md rounded-xl px-6 py-8 mx-4 md:px-12 md:py-10 shadow-lg'
       >
-        <h1 className='text-3xl md:text-5xl font-bold'>
-          THE COMFORT GUARDIANS
+        <h1 className='text-4xl md:text-6xl font-bold mb-4 drop-shadow-md'>
+          Expert HVAC Services in Atlanta
         </h1>
-
-        <p className='mt-4 text-lg'>
-          Expert HVAC services to ensure your comfort all year round.
+        <p className='text-lg md:text-xl mb-6 drop-shadow-sm'>
+          Comfort all year round. Reliable. Fast. Available 7 Days a Week.
         </p>
-
-        <div className='mt-6'>
-          <button className='bg-white text-black font-semibold px-6 py-2 rounded hover:bg-gray-200 hover:scale-105 transition-transform duration-300'>
-            Book an Appointment
-          </button>
+        <div className='flex flex-col md:flex-row items-center justify-center gap-4'>
+          <Link href='#contact'>
+            <Button className='px-6 py-3 text-lg font-semibold cursor-pointer'>
+              Book an Appointment
+            </Button>
+          </Link>
+          <span className='text-sm md:text-base text-white/80'>
+            (404) 542-4332
+          </span>
         </div>
-
-        <p className='mt-4 text-lg md:text-xl font-medium tracking-wide'>
-          (404) 542-4332
-        </p>
-
-        <p className='text-sm text-gray-200 mt-1'>Available 7 Days a Week</p>
       </motion.div>
     </section>
   );
