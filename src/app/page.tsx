@@ -5,6 +5,7 @@ import Testimonials from '@/sections/Testimonials';
 import Financing from '@/sections/Financing';
 import ContactForm from '@/components/ContactForm';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <section id='contact'>
         <ContactForm />
       </section>
+      <Footer />
     </main>
   );
 }
