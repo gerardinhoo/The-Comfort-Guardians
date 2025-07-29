@@ -47,7 +47,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className='py-20 bg-gray-100 px-6 md:px-20' id='contact'>
+    <section id='contact' className='py-16 bg-gray-50 px-6 md:px-20'>
       <div className='max-w-xl mx-auto bg-white shadow-lg rounded-lg p-8'>
         <h2 className='text-3xl font-bold text-center mb-6 text-gray-800'>
           Contact Us
