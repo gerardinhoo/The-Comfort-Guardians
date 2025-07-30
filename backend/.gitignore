@@ -1,0 +1,13 @@
+echo "node_modules
+.env
+" > backend/.gitignore
+
+# env
+.env
+
+# deps
+node_modules
+
+# local tokens / runtime data
+data/*
+!data/.gitkeep
