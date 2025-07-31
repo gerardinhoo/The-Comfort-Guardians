@@ -1,7 +1,6 @@
 # railway.toml (at repo root)
 
 [build]
-builder = "NIXPACKS"
 # Install deps inside the backend folder
 buildCommand = "cd backend && npm ci"
 watchPatterns = ["backend/**"]
