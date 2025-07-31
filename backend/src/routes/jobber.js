@@ -235,8 +235,20 @@ router.get('/callback', async (req, res) => {
       { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
     );
 
-    writeTokens(data);
-    console.log('Saved Jobber tokens to data/jobber-tokens.json');
+    const nowSec = Math.floor(Date.now() / 1000);
+    const stamped = {
+      obtained_at: data.obtained_at ?? nowSec,
+      expires_at:
+        data.expires_at ??
+        (data.expires_in ? nowSec + Number(data.expires_in) : undefined),
+      ...data,
+    };
+    await writeTokens(stamped);
+    console.log(
+      'Saved Jobber tokens to',
+      process.env.TOKENS_FILE || '/data/jobber-tokens.json'
+    );
+
     res.send('Connected to Jobber! Tokens saved locally for this environment.');
   } catch (err) {
     console.error(
