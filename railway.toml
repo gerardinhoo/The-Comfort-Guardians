@@ -1,0 +1,17 @@
+# railway.toml (at repo root)
+
+[build]
+builder = "NIXPACKS"
+# Install deps inside the backend folder
+buildCommand = "cd backend && npm ci"
+watchPatterns = ["backend/**"]
+
+[deploy]
+# Start the server from the backend folder
+startCommand = "cd backend && npm start"
+healthcheckPath = "/healthz"
+restartPolicyType = "ON_FAILURE"
+
+[variables]  # Only non-secrets; put secrets in Railway Variables UI
+NODE_ENV = "production"
+PORT = "8080"
