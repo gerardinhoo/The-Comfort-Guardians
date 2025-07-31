@@ -19,18 +19,18 @@ export async function readTokens() {
 }
 
 export function isExpired(tokens, skewSec = 60) {
-  if (!tokens || !tokens.access_token) return true;
-
+  if (!tokens || !tokens.access_token) return true; // no token => treat as expired
   const nowSec = Math.floor(Date.now() / 1000);
+
   if (tokens.expires_at) {
     return nowSec >= Number(tokens.expires_at) - skewSec;
   }
-  if (tokens.expires_in) {
-    const obtained = Number(tokens.obtained_at ?? 0);
+  if (tokens.expires_in && tokens.obtained_at) {
     return (
-      obtained === 0 || nowSec >= obtained + Number(tokens.expires_in) - skewSec
+      nowSec >= Number(tokens.obtained_at) + Number(tokens.expires_in) - skewSec
     );
   }
-  // If we have no expiry info, assume NOT expired
-  return false;
+
+  // IMPORTANT CHANGE: if we don't have reliable expiry metadata, refresh proactively
+  return true;
 }

@@ -11,3 +11,9 @@ node_modules
 # local tokens / runtime data
 data/*
 !data/.gitkeep
+
+.env.local
+data/
+data/*.json
+
+
