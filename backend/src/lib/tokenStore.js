@@ -1,32 +1,36 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 
-const TOKENS_PATH = path.join(process.cwd(), 'data', 'jobber-tokens.json');
+const TOKENS_FILE = process.env.TOKENS_FILE || '/data/jobber-tokens.json';
 
-export function readTokens() {
+export async function writeTokens(data) {
+  const dir = path.dirname(TOKENS_FILE);
+  await fs.mkdir(dir, { recursive: true });
+  await fs.writeFile(TOKENS_FILE, JSON.stringify(data, null, 2), 'utf8');
+}
+
+export async function readTokens() {
   try {
-    const raw = fs.readFileSync(TOKENS_PATH, 'utf8');
-    return JSON.parse(raw);
+    const txt = await fs.readFile(TOKENS_FILE, 'utf8');
+    return JSON.parse(txt);
   } catch {
     return null;
   }
 }
 
-export function writeTokens(tokens) {
-  fs.mkdirSync(path.dirname(TOKENS_PATH), { recursive: true });
-  // add computed expiry timestamp
-  const payload = {
-    ...tokens,
-    // expires_in is seconds; store absolute epoch ms (minus 60s safety)
-    expires_at: Date.now() + (tokens.expires_in ?? 3600) * 1000 - 60 * 1000,
-  };
-  fs.writeFileSync(TOKENS_PATH, JSON.stringify(payload, null, 2), {
-    mode: 0o600,
-  });
-  return payload;
-}
+export function isExpired(tokens, skewSec = 60) {
+  if (!tokens || !tokens.access_token) return true;
 
-export function isExpired(tokens) {
-  if (!tokens?.expires_at) return true;
-  return Date.now() >= tokens.expires_at;
+  const nowSec = Math.floor(Date.now() / 1000);
+  if (tokens.expires_at) {
+    return nowSec >= Number(tokens.expires_at) - skewSec;
+  }
+  if (tokens.expires_in) {
+    const obtained = Number(tokens.obtained_at ?? 0);
+    return (
+      obtained === 0 || nowSec >= obtained + Number(tokens.expires_in) - skewSec
+    );
+  }
+  // If we have no expiry info, assume NOT expired
+  return false;
 }

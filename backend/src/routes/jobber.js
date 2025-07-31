@@ -6,6 +6,38 @@ import { getValidAccessToken } from '../lib/jobberAuth.js';
 
 const router = express.Router();
 
+import { readTokens } from '../lib/tokenStore.js'; // ensure this import is present
+
+// Debug: see token + expiry info (no secrets)
+router.get('/debug/token', async (_req, res) => {
+  try {
+    const t = await readTokens();
+    res.json({
+      has_token: !!t?.access_token,
+      token_preview: t?.access_token
+        ? t.access_token.slice(0, 6) + '…' + t.access_token.slice(-6)
+        : null,
+      token_type: t?.token_type,
+      scope: t?.scope,
+      obtained_at: t?.obtained_at,
+      expires_in: t?.expires_in,
+      expires_at: t?.expires_at,
+    });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Debug: confirm env/config we send to Jobber
+router.get('/debug/env', (_req, res) => {
+  res.json({
+    JOBBER_API_BASE: process.env.JOBBER_API_BASE,
+    JOBBER_GRAPHQL_PATH: process.env.JOBBER_GRAPHQL_PATH,
+    JOBBER_API_VERSION:
+      process.env.JOBBER_API_VERSION || '(unset, fallback will try list)',
+  });
+});
+
 /* -------------------- helpers -------------------- */
 function cleanEnv(v) {
   return (v || '').split('#')[0].trim();
@@ -179,6 +211,8 @@ router.get('/connect', (_req, res) => {
     cleanEnv(process.env.JOBBER_REDIRECT_URI)
   );
   url.searchParams.set('response_type', 'code');
+  const scope = cleanEnv(process.env.JOBBER_OAUTH_SCOPE);
+  if (scope) url.searchParams.set('scope', scope);
   res.redirect(url.toString());
 });
 
@@ -260,6 +294,13 @@ async function postGqlWithVersionFallback(body, accessToken) {
     if (versionMissing) continue; // try next version
   }
   console.warn('All versions failed. Last version tried:', lastVersion);
+  console.warn(
+    'All versions failed. Last version tried:',
+    lastVersion,
+    'status:',
+    lastResp?.status
+  );
+  console.warn('Last response body:', JSON.stringify(lastResp?.data));
   return lastResp;
 }
 
@@ -268,57 +309,57 @@ router.get('/test/clients-graphql', async (_req, res) => {
   try {
     const accessToken = await getValidAccessToken();
 
+    // Minimal query first (avoid fields that may not exist on some versions)
     const query = `
       query ListClients($first: Int!) {
         clients(first: $first) {
-          nodes {
-            id
-            name
-            firstName
-            lastName
-            createdAt
-            emails { address primary }
-            phones { number primary }
-          }
+          nodes { id name }
         }
       }
     `;
 
     const resp = await postGqlWithVersionFallback(
-      { query, variables: { first: 10 } },
+      { query, variables: { first: 5 } },
       accessToken
     );
 
+    // Bubble up details instead of a generic 500
     if (resp.status < 200 || resp.status >= 300) {
       console.error('GraphQL HTTP error:', resp.status, resp.data);
-      return res
-        .status(500)
-        .json({ error: 'GraphQL HTTP error', details: resp.data });
+      return res.status(resp.status).json({
+        error: 'GraphQL HTTP error',
+        status: resp.status,
+        details: resp.data,
+      });
     }
     if (resp.data?.errors) {
       console.error(
         'GraphQL errors:',
         JSON.stringify(resp.data.errors, null, 2)
       );
-      return res
-        .status(500)
-        .json({ error: 'GraphQL error', details: resp.data.errors });
+      return res.status(500).json({
+        error: 'GraphQL errors',
+        details: resp.data.errors,
+      });
     }
     if (!resp.data?.data) {
-      console.error('GraphQL unexpected response:', resp.data);
-      return res
-        .status(500)
-        .json({ error: 'Unexpected GraphQL response', details: resp.data });
+      console.error('GraphQL unexpected:', resp.data);
+      return res.status(500).json({
+        error: 'Unexpected GraphQL response',
+        details: resp.data,
+      });
     }
 
     res.json(resp.data.data.clients.nodes);
   } catch (err) {
     console.error(
-      'Clients query error:',
+      'Clients query exception:',
       err.response?.status,
       err.response?.data || err.message
     );
-    res.status(500).json({ error: 'Failed to fetch clients via GraphQL' });
+    res
+      .status(500)
+      .json({ error: 'Exception in clients query', details: err.message });
   }
 });
 

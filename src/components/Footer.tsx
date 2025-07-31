@@ -18,7 +18,9 @@ export default function Footer() {
                 width={40}
                 height={40}
               />
-              <span className='text-lg font-semibold'>Comfort Guardians</span>
+              <span className='text-lg font-semibold'>
+                The Comfort Guardians
+              </span>
             </div>
             <p className='text-gray-400'>
               Heating & Cooling Comfort You Can Count On.
@@ -53,14 +55,17 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className='text-white font-semibold mb-3'>Get in Touch</h4>
-            <p className='text-gray-300'>Email: info@comfortguardians.com</p>
-            <p className='text-gray-300'>Phone: (555) 123-4567</p>
+            <p className='text-gray-300'>
+              Email: Mayel@thecomfortsguardians.com
+            </p>
+            <p className='text-gray-300'>Phone: (404) 542-4332</p>
           </div>
         </div>
 
         <hr className='my-8 border-gray-700' />
         <p className='text-center text-gray-500 text-xs'>
-          © {new Date().getFullYear()} Comfort Guardians. All rights reserved.
+          © {new Date().getFullYear()} The Comfort Guardians. All rights
+          reserved.
         </p>
       </div>
     </footer>
