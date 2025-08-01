@@ -1,13 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-
-const Button = ({ children }: { children: React.ReactNode }) => (
-  <button className='bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-100 transition'>
-    {children}
-  </button>
-);
 
 export default function Hero() {
   return (
@@ -55,7 +48,7 @@ export default function Hero() {
           Book an Appointment
         </a>
         <p className='text-sm mt-3 text-gray-200 italic'>
-          You'll receive a secure link to manage your appointment.
+          You&apos;ll receive a secure link to manage your appointment.
         </p>
       </motion.div>
     </section>
