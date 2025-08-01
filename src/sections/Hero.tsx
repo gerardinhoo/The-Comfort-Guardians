@@ -37,14 +37,26 @@ export default function Hero() {
         <p className='text-base md:text-xl mb-6 drop-shadow-sm'>
           Comfort all year round. Reliable. Fast. Available 7 Days a Week.
         </p>
-        <div className='flex flex-col md:flex-row items-center justify-center gap-4'>
+        {/* <div className='flex flex-col md:flex-row items-center justify-center gap-4'>
           <Link href='#contact'>
             <Button>Book an Appointment</Button>
           </Link>
           <span className='text-sm md:text-base text-white/80'>
             (404) 542-4332
           </span>
-        </div>
+        </div> */}
+
+        <a
+          href='https://clienthub.getjobber.com/client_hubs/820e5aef-df09-4288-89bf-6ef02f0edf86/login/new?source=share_login'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='inline-block bg-green-600 hover:bg-green-700 text-white font-semibold text-lg px-8 py-4 rounded-xl mt-6 shadow-md transition-all duration-200'
+        >
+          Book an Appointment
+        </a>
+        <p className='text-sm mt-3 text-gray-200 italic'>
+          You'll receive a secure link to manage your appointment.
+        </p>
       </motion.div>
     </section>
   );
