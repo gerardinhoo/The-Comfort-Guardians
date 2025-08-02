@@ -59,12 +59,15 @@
 
 6. **📁Folder Structure**
 
-   /src
-   /app → Main application routing
-   /components → Reusable UI components (Hero, Services, ContactForm, etc.)
-   /lib → Backend logic (e.g. email sending)
-   /styles → Tailwind and global styles
-   /public → Static assets (logos, images)
+### 📁 Folder Structure
+
+```txt
+/src /app → Main application routing
+/components → Reusable UI components (Hero, Services, ContactForm, etc.)
+/lib → Backend logic (e.g. email sending)
+/styles → Tailwind and global styles
+/public → Static assets (logos, images)
+```
 
 7. **🚀Deployment**
 
