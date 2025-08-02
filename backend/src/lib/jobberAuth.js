@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { readTokens, writeTokens, isExpired } from './tokenStore.js'; // if you didn't add isExpired, see inline fallback below
+import { readTokens, writeTokens, isExpired } from './tokenStore.js';
 
 function clean(v) {
   return (v || '').split('#')[0].trim();
@@ -9,17 +9,6 @@ const TOKEN_URL = clean(process.env.JOBBER_TOKEN_URL);
 const CLIENT_ID = clean(process.env.JOBBER_CLIENT_ID);
 const CLIENT_SECRET = clean(process.env.JOBBER_CLIENT_SECRET);
 const REDIRECT_URI = clean(process.env.JOBBER_REDIRECT_URI);
-
-// If you didn't export isExpired from tokenStore.js, uncomment this:
-// function isExpired(tokens, skewSec = 60) {
-//   if (!tokens || !tokens.access_token) return true;
-//   const nowSec = Math.floor(Date.now() / 1000);
-//   if (tokens.expires_at) return nowSec >= Number(tokens.expires_at) - skewSec;
-//   if (tokens.expires_in && tokens.obtained_at) {
-//     return nowSec >= Number(tokens.obtained_at) + Number(tokens.expires_in) - 60;
-//   }
-//   return false; // no expiry info -> assume valid
-// }
 
 async function refreshTokens(refresh_token) {
   const form = new URLSearchParams({

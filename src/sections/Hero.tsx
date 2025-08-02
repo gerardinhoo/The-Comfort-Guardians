@@ -8,16 +8,13 @@ export default function Hero() {
       id='home'
       className='relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-gradient-to-r from-[#f3904f] via-[#f38e6d] to-[#a06df2]'
     >
-      {/* Glow Effects – hidden on mobile */}
       <div className='absolute inset-0 -z-10'>
         <div className='hidden sm:block absolute top-10 left-10 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse' />
         <div className='hidden sm:block absolute bottom-10 right-10 w-96 h-96 bg-white/10 rounded-full blur-2xl animate-pulse' />
       </div>
 
-      {/* Optional overlay on top for depth */}
       <div className='absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/30 to-transparent z-10 pointer-events-none' />
 
-      {/* Main Text Card */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
