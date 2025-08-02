@@ -43,9 +43,9 @@ export default function Footer() {
               <li>
                 <Link href='#testimonials'>Testimonials</Link>
               </li>
-              {/* <li>
+              <li>
                 <Link href='#contact'>Contact</Link>
-              </li> */}
+              </li>
               <li>
                 <Link href='#whyUs'>Why Us</Link>
               </li>

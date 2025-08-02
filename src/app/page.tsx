@@ -3,7 +3,7 @@ import WhyChooseUs from '@/sections/WhyChooseUs';
 import Services from '@/sections/Services';
 import Testimonials from '@/sections/Testimonials';
 import Financing from '@/sections/Financing';
-// import ContactForm from '@/components/ContactForm';
+import ContactForm from '@/components/ContactForm';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -26,9 +26,9 @@ export default function Home() {
       <section id='financing'>
         <Financing />
       </section>
-      {/* <section id='contact'>
+      <section id='contact'>
         <ContactForm />
-      </section> */}
+      </section>
       <Footer />
     </main>
   );

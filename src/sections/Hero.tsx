@@ -40,13 +40,14 @@ export default function Hero() {
         </div> */}
 
         <a
-          href='https://clienthub.getjobber.com/client_hubs/820e5aef-df09-4288-89bf-6ef02f0edf86/login/new?source=share_login'
+          href='https://clienthub.getjobber.com/client_hubs/820e5aef-df09-4288-89bf-6ef02f0edf86/public/work_request/new'
           target='_blank'
           rel='noopener noreferrer'
-          className='inline-block bg-green-600 hover:bg-green-700 text-white font-semibold text-lg px-8 py-4 rounded-xl mt-6 shadow-md transition-all duration-200'
+          className='bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition duration-200'
         >
           Book an Appointment
         </a>
+
         <p className='text-sm mt-3 text-gray-200 italic'>
           You&apos;ll receive a secure link to manage your appointment.
         </p>

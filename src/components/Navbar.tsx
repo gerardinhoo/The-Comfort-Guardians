@@ -54,9 +54,9 @@ export default function Navbar() {
           <Link href='#testimonials' className={navLinkStyle}>
             Testimonials
           </Link>
-          {/* <Link href='#contact' className={navLinkStyle}>
+          <Link href='#contact' className={navLinkStyle}>
             Contact
-          </Link> */}
+          </Link>
           <Link href='#whyUs' className={navLinkStyle}>
             Why Us
           </Link>
