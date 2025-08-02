@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id='home'
-      className='relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-gradient-to-r from-[#f3904f] via-[#f38e6d] to-[#a06df2]'
+      className='relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-gradient-to-r from-[#ffe0bb] via-[#ffc9c4] to-[#ddc8ff]'
     >
       <div className='absolute inset-0 -z-10'>
         <div className='hidden sm:block absolute top-10 left-10 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse' />

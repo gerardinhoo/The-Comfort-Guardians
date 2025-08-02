@@ -84,49 +84,51 @@ export default function Navbar() {
 
       {/* Mobile Nav Menu */}
       {isOpen && (
-        <div className='md:hidden bg-white shadow-md px-6 py-6 space-y-5'>
-          <Link
-            href='#home'
-            onClick={() => setIsOpen(false)}
-            className={navLinkStyle}
-          >
-            Home
-          </Link>
-          <Link
-            href='#services'
-            onClick={() => setIsOpen(false)}
-            className={navLinkStyle}
-          >
-            Services
-          </Link>
-          <Link
-            href='#financing'
-            onClick={() => setIsOpen(false)}
-            className={navLinkStyle}
-          >
-            Financing
-          </Link>
-          <Link
-            href='#testimonials'
-            onClick={() => setIsOpen(false)}
-            className={navLinkStyle}
-          >
-            Testimonials
-          </Link>
-          {/* <Link
-            href='#contact'
-            onClick={() => setIsOpen(false)}
-            className={navLinkStyle}
-          >
-            Contact
-          </Link> */}
-          <Link
-            href='#why-us'
-            onClick={() => setIsOpen(false)}
-            className={navLinkStyle}
-          >
-            Why Us
-          </Link>
+        <div className='md:hidden bg-white shadow-md px-6 py-6'>
+          <div className='flex flex-col items-center space-y-6'>
+            <Link
+              href='#home'
+              onClick={() => setIsOpen(false)}
+              className={navLinkStyle}
+            >
+              Home
+            </Link>
+            <Link
+              href='#services'
+              onClick={() => setIsOpen(false)}
+              className={navLinkStyle}
+            >
+              Services
+            </Link>
+            <Link
+              href='#financing'
+              onClick={() => setIsOpen(false)}
+              className={navLinkStyle}
+            >
+              Financing
+            </Link>
+            <Link
+              href='#testimonials'
+              onClick={() => setIsOpen(false)}
+              className={navLinkStyle}
+            >
+              Testimonials
+            </Link>
+            <Link
+              href='#contact'
+              onClick={() => setIsOpen(false)}
+              className={navLinkStyle}
+            >
+              Contact
+            </Link>
+            <Link
+              href='#why-us'
+              onClick={() => setIsOpen(false)}
+              className={navLinkStyle}
+            >
+              Why Us
+            </Link>
+          </div>
         </div>
       )}
     </nav>
