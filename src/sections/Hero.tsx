@@ -47,10 +47,6 @@ export default function Hero() {
         >
           Book an Appointment
         </a>
-
-        <p className='text-sm mt-3 text-gray-200 italic'>
-          You&apos;ll receive a secure link to manage your appointment.
-        </p>
       </motion.div>
     </section>
   );
