@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id='home'
-      className='relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-gradient-to-r from-[#ffe0bb] via-[#ffc9c4] to-[#ddc8ff]'
+      className='relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-gradient-to-r from-[#ffd4b2] via-[#ffb4b4] to-[#cdbaff]'
     >
       <div className='absolute inset-0 -z-10'>
         <div className='hidden sm:block absolute top-10 left-10 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse' />
@@ -21,7 +21,7 @@ export default function Hero() {
         transition={{ duration: 1 }}
         className='relative z-20 text-center bg-white/10 backdrop-blur-md rounded-xl px-4 py-8 mx-4 md:px-12 md:py-10 shadow-lg max-w-3xl'
       >
-        <h1 className='text-3xl md:text-6xl font-bold mb-4 drop-shadow-md'>
+        <h1 className='text-4xl md:text-6xl font-extrabold mb-4 text-white drop-shadow-lg tracking-tight leading-tight'>
           Expert HVAC Services in Atlanta
         </h1>
         <p className='text-base md:text-xl mb-6 drop-shadow-sm'>
