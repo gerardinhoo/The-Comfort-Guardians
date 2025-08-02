@@ -62,7 +62,7 @@ export default function ContactForm() {
             <input
               type='text'
               {...register('name')}
-              className='w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
+              className='w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 placeholder-gray-500 bg-white'
             />
             {errors.name && (
               <p className='text-red-500 text-sm mt-1'>{errors.name.message}</p>
@@ -77,7 +77,7 @@ export default function ContactForm() {
             <input
               type='email'
               {...register('email')}
-              className='w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
+              className='w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 placeholder-gray-500 bg-white'
             />
             {errors.email && (
               <p className='text-red-500 text-sm mt-1'>
@@ -94,8 +94,9 @@ export default function ContactForm() {
             <input
               type='tel'
               {...register('phone')}
-              className='w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
+              className='w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 placeholder-gray-500 bg-white'
             />
+
             {errors.phone && (
               <p className='text-red-500 text-sm mt-1'>
                 {errors.phone.message}
@@ -110,7 +111,7 @@ export default function ContactForm() {
             </label>
             <textarea
               {...register('message')}
-              className='w-full mt-1 p-3 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-400'
+              className='w-full mt-1 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-900 placeholder-gray-500 bg-white'
               rows={4}
             />
             {errors.message && (

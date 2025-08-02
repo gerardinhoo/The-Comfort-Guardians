@@ -18,7 +18,7 @@ export default function Navbar() {
   }, []);
 
   const navLinkStyle =
-    'uppercase font-semibold tracking-wide hover:text-blue-600 transition-colors duration-200';
+    'uppercase font-semibold tracking-wide hover:text-blue-600 transition-colors duration-200 text-lg';
 
   return (
     <nav
@@ -35,7 +35,7 @@ export default function Navbar() {
             width={300}
             className='h-10 w-auto'
           />
-          <span className='font-bold text-blue-600 text-lg'>
+          <span className='font-bold text-blue-600 text-lg cursor-pointer'>
             THE COMFORT GUARDIANS
           </span>
         </Link>
@@ -85,7 +85,8 @@ export default function Navbar() {
       {/* Mobile Nav Menu */}
       {isOpen && (
         <div className='md:hidden bg-white shadow-md px-6 py-6'>
-          <div className='flex flex-col items-center space-y-6'>
+          <div className='flex flex-col items-center space-y-6 text-gray-900'>
+            {' '}
             <Link
               href='#home'
               onClick={() => setIsOpen(false)}
