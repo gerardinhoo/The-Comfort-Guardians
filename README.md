@@ -50,6 +50,7 @@
    EMAIL_TO=your_business_email
 
 4. **Start the development server**
+
    npm run dev
 
 5. **Visit http://localhost:3000 to view the site**
@@ -77,7 +78,7 @@
 
 8. **🙌 Credits**
 
-   Built by Gerard Eku as a freelance project.
+   Built by Gerard Eklu as a freelance project.
 
    Client: The Comfort Guardians HVAC (Atlanta, GA)
 
