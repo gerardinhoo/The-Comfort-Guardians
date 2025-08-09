@@ -49,6 +49,9 @@ export default function Footer() {
               <li>
                 <Link href='#whyUs'>Why Us</Link>
               </li>
+              <li>
+                <Link href='/gallery'>Gallery</Link>
+              </li>
             </ul>
           </div>
 
