@@ -1,6 +1,6 @@
 'use client';
-
 import { motion } from 'framer-motion';
+// import WhyChooseUs from '@/components/WhyChooseUs';
 
 export default function Hero() {
   return (
@@ -27,24 +27,19 @@ export default function Hero() {
         <p className='text-base md:text-xl mb-6 drop-shadow-sm'>
           Comfort all year round. Reliable. Fast. Available 7 Days a Week.
         </p>
-        {/* <div className='flex flex-col md:flex-row items-center justify-center gap-4'>
-          <Link href='#contact'>
-            <Button>Book an Appointment</Button>
-          </Link>
-          <span className='text-sm md:text-base text-white/80'>
-            (404) 542-4332
-          </span>
-        </div> */}
-
-        <a
-          href='https://clienthub.getjobber.com/client_hubs/820e5aef-df09-4288-89bf-6ef02f0edf86/public/work_request/new'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition duration-200'
-        >
-          Book an Appointment
-        </a>
+        <div>
+          <a
+            href='https://clienthub.getjobber.com/client_hubs/820e5aef-df09-4288-89bf-6ef02f0edf86/public/work_request/new'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition duration-200'
+          >
+            Book an Appointment
+          </a>
+        </div>
       </motion.div>
+
+      {/* keep Why Choose Us as a separate section later on the page, not inside the hero visually */}
     </section>
   );
 }

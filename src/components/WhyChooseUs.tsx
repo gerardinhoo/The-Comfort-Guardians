@@ -1,8 +1,10 @@
 'use client';
-
 export default function WhyChooseUs() {
   return (
-    <section className='py-20 px-6 md:px-12 bg-gradient-to-b from-white to-[#fff9f5] text-center'>
+    <section
+      id='why-us'
+      className='py-20 px-6 md:px-12 bg-gradient-to-b from-white to-[#fff9f5] text-center'
+    >
       <h2 className='text-3xl md:text-4xl font-bold mb-12 text-gray-900'>
         Why Choose The Comfort Guardians?
       </h2>

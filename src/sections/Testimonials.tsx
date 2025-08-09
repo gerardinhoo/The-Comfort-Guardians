@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { FaStar } from 'react-icons/fa';
+import GoogleReview from '@/components/GoogleReview';
 
 const reviews = [
   {
@@ -38,6 +39,9 @@ export default function Testimonials() {
       <h2 className='text-3xl font-bold text-center mb-12'>
         What Our Customers Say
       </h2>
+      <div className='mb-10 flex justify-center'>
+        <GoogleReview />
+      </div>
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={30}
