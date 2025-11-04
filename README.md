@@ -2,6 +2,8 @@
 
 > A modern, responsive marketing website for The Comfort Guardians HVAC company based in Atlanta.  
 > Built with Next.js, Tailwind CSS, Framer Motion, and integrated with Jobber's Client Hub and a contact form.
+> Implemented **SEO optimization** to improve visibility and ranking on Google.
+
 
 [Visit Live Site 🚀](https://thecomfortsguardians.com)
 
@@ -12,6 +14,8 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-EF008F?style=for-the-badge&logo=framer&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)
+![SEO](https://img.shields.io/badge/SEO-Optimization-brightgreen?style=for-the-badge&logo=google)
+
 
 ---
 
@@ -24,6 +28,7 @@
 - Nodemailer backend (email sending logic ready)
 - Integrated Jobber Client Hub link for real appointment booking
 - Fully responsive layout (mobile/tablet/desktop)
+- **SEO optimization**: meta tags, structured data, sitemap, alt text, performance improvements
 - Deployed on Vercel
 
 ---
